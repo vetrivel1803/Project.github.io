@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            background-image: url("https://www.hdwallpapers.in/download/blue_black_lines_shades_dark_background_hd_black-1920x1080.jpg");
+        }
+        header {
+            background-color: #33333369;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background-color: #ddd;
+            transition: background-color 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #666;
+            color: #fff;
+        }
+        main {
+            padding: 20px;
+        }
+        article {
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+        article:hover {
+            transform: translateY(-5px);
+        }
+        h3 {
+            color: #333;
+        }
+        h5{
+            color: whitesmoke;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            animation: fadeInUp 0.5s ease;
+        }
+        footer nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>VETRIVEL RS</h1>
+        <h5>Contact: 9943743237    |  Email-ID:vetrivel4609@gmail.com</h5>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#skills">SKILLS</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
+            <li><a href="#about">ABOUT ME</a></li>
+        </ul>
+    </nav>
+    <main>
+        <article id="home">
+            <h3>Career goal</h3>
+            <p>Highly motivated and accomplished engineering professional with a proven track record of success in various engineering disciplines. A natural leader with excellent communication abilities. Seeking an opportunity to leverage my expertise and contribute to the success of an organization by delivering exceptional engineering outcomes.</p>
+        </article>
+        <article id="skills">
+            <h3>Education</h3>
+            <ul>
+                <li><p>Sri Eshwar College of Engineering, Coimbatore
+                    B. E Electronics and Communication Engineering | Graduation (Batch 2022-26) 
+                    CGPA-8.35</p></li>
+                <li><p>Shri Maharishi Vidya Mandir, Dindigul
+                    SSLC | 2019-2020 – 88.2%</p></li>
+                <li><p>SMBM National Public School, Dindigul 
+                    HSC | 2021-2022 – 85%</p></li>
+            </ul>
+        </article>
+        <article id="projects">
+            <h3>Projects</h3>
+            <ul>
+                <li>Number plate detection</li>
+                <li>Tethered drone for fire fighting</li>
+            </ul>
+        </article>
+        <article id="about">
+            <h3>Technical skills</h3>
+            <p>Programming languages:</p>
+            <ul>
+                <li>Python</li>
+                <li>Java</li>
+                <li>C language</li>
+            </ul>
+            <p>Core Concepts - Data Structures</p>
+
+            <h3>Area of Interests</h3>
+            <ul>
+                <li>Web development</li>
+                <li>Drone</li>
+            </ul>
+
+            <h3>Certification</h3>
+            <ul>
+                <li>Certification on Microsoft (Word, Excel, Database, Outlook)</li>
+                <li>Certification on C language</li>
+                <li>Certification on Python language</li>
+                <li>NPTEL certificate for "Cyber Security and Privacy"</li>
+            </ul>
+        </article>
+    </main>
+    <footer>
+        <nav>
+            <p><a href="https://leetcode.com/Vetrivel1803/">|LEETCODE|</a>
+            <a href="https://www.hackerrank.com/profile/vetrivel_rs20221">|HACKERRANK|</a>
+            <a href="https://www.codechef.com/users/vetrivelrs2022">|CODECHEF|</a></p>
+        </nav>
+    </footer>
+
+    <script>
+        // JavaScript for smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
