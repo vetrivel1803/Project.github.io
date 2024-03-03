@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login and Registration</title>
+<style>
+    *{
+        background-color: white;
+        color: black;
+    }
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(https://wallpapers.com/images/hd/black-aesthetic-background-nqfvlrcuuykg12f2.jpg);
+  }
+  .container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 100px white;
+  }
+  h2 {
+    text-align: center;
+  }
+  input[type="text"], input[type="password"], input[type="email"], input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 3px;
+    background-color: black;
+    color: #fff;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: grey
+  }
+</style>
+</head>
+<body>
+
+<div class="container" id="loginContainer">
+  <h2>LOGIN / SIGNUP</h2>
+  <form id="loginForm">
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button type="submit">Login</button>
+  </form>
+  <div id="signupLink">
+    <p>Don't have an account? <a href="" target="_blank">Sign Up</a></p>
+  </div>
+</div>
+
+<div class="container" id="signupContainer" style="display: none;">
+  <h2>Sign Up</h2>
+  <form id="signupForm">
+    <input type="text" id="newUsername" placeholder="New Username">
+    <input type="password" id="newPassword" placeholder="New Password">
+    <button type="submit">Sign Up</button>
+  </form>
+</div>
+
+<div class="container registration-container" id="registrationContainer" style="display: none;">
+  <h2>REGISTRATION FORM</h2>
+  <form id="registrationForm" onsubmit="return validateRegistration()">
+    <input type="text" id="name" placeholder="Name">
+    <input type="text" id="fatherName" placeholder="Father's Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="date" id="dob" placeholder="Date of Birth">
+    <div class="checkbox-container">Gender : 
+      <input type="checkbox" id="male" name="gender" value="male">
+      <label class="checkbox-label" for="male">Male</label>
+      <input type="checkbox" id="female" name="gender" value="female">
+      <label class="checkbox-label" for="female">Female</label>
+      <input type="checkbox" id="other" name="gender" value="other">
+      <label class="checkbox-label" for="other">Other</label>
+    </div>
+    <select id="maritalStatus">
+      <option value="" disabled selected>Select Marital Status</option>
+      <option value="single">Single</option>
+      <option value="married">Married</option>
+      <option value="divorced">Divorced</option>
+      <option value="widowed">Widowed</option>
+    </select>
+    <input type="text" id="nationality" placeholder="Nationality">
+    <input type="text" id="phone" placeholder="Phone">
+    <input type="text" id="address" placeholder="Address">
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<script>
+  // Mock user data
+  const users = [
+    { username: "vetrivel", password: "1234567" },
+    { username: "sadhanaa", password: "1234567" },
+    { username: "saiakshhayaa", password: "1234567" },
+    { username: "srisudhi", password: "1234567" },
+    { username: "srikrishna", password: "1234567" },
+    { username: "ravishankar", password: "1234567" }
+  ];
+
+  // Login form submission
+  document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const user = users.find(user => user.username === username && user.password === password);
+    if (user) {
+      alert("Login successful!");
+      document.getElementById("loginContainer").style.display = "none";
+      document.getElementById("registrationContainer").style.display = "block";
+    } else {
+      alert("Invalid username or password");
+    }
+  });
+
+  // Sign up form submission
+  document.getElementById("signupForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const newUsername = document.getElementById("newUsername").value;
+    const newPassword = document.getElementById("newPassword").value;
+    if (newUsername && newPassword) {
+      // Here you can add the new user to your users array or perform other actions
+      alert("Sign up successful!");
+      document.getElementById("signupContainer").style.display = "none";
+      document.getElementById("loginContainer").style.display = "block";
+    } else {
+      alert("Please provide a username and password");
+    }
+  });
+
+  // Function to validate registration form
+  function validateRegistration() {
+    const name = document.getElementById("name").value;
+    const fatherName = document.getElementById("fatherName").value;
+    const email = document.getElementById("email").value;
+    const dob = document.getElementById("dob").value;
+    const genderCheckboxes = document.querySelectorAll('input[name="gender"]:checked');
+    const maritalStatus = document.getElementById("maritalStatus").value;
+    const nationality = document.getElementById("nationality").value;
+    const phone = document.getElementById("phone").value;
+    const address = document.getElementById("address").value;
+
+    if (!name || !fatherName || !email || !dob || genderCheckboxes.length === 0 || !maritalStatus || !nationality || !phone || !address) {
+      alert("Please fill in all the details.");
+      return false;
+    } else {
+      alert("Registration successful!");
+      return true;
+    }
+  }
+</script>
+
+</body>
+</html>

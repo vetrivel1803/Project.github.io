@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>conversion</title>
+<style>
+    *{
+        background-color: whit;
+    }
+    body
+    {
+        width:300px;
+        margin: 50px;
+        padding: 200px;
+        border-radius: 5px;
+        color:white;
+        background-color: rgb(8, 8, 8);
+        box-shadow: 0 0 50px hsl(180, 14%, 92%);
+    }
+    h1{
+        font-size: 20px;
+        background-color: white;
+        color: black;
+    }
+    .container
+    {
+        background-color:black;
+        color: white;
+    }
+    .submit-button
+    {
+      color: black;
+    }
+    .unit
+    {
+      color: white;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>TEMPERATURE CONVERTER</h1>
+  <div class="form-control">
+    <label for="in">Input number</label>
+    <input type="text" id="in" placeholder="Enter the number">
+  </div>
+  <div class="form-control">
+    <label for="unit">Unit</label>
+    <select type="text" id="unit" placeholder="Unit">
+      <option name="unit" value="Celsius">Celsius</option>
+      <option name="unit" value="Fahrenheit">Fahrenheit</option></select>
+  </div>
+  <button type="submit" class="submit-button" onclick="converter()">Convert</button>
+  <div id="convert"></div>
+</div>
+
+<script>
+  function converter() {
+    const num = document.getElementById("in").value;
+    const unit = document.getElementById("unit").value;
+    const s = document.getElementById("convert");
+    if (unit == "Fahrenheit") {
+      let a = (5 / 9) * (num - 32);
+      s.innerHTML = `<p style="color: white;"> Celsius: ${a};</p>`;
+    } else {
+      let b = (9 / 5 * num) + 32;
+      s.innerHTML = `<p style="color: white;"> Fahrenheit: ${b};</p>`;
+    }
+  }
+</script>
+</body>
+</html>
